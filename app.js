@@ -10,7 +10,11 @@ let server = app.listen(port, () => {
   console.log("listening to port", port);
 });
 
-let io = socket(server);
+let io = socket(server, {
+  cors: {
+    origin: "*",
+  },
+});
 
 io.on("connection", (socket) => {
   console.log("socket connected");
